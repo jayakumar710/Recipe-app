@@ -65,17 +65,17 @@ const Recipe = () => {
 
   return (
     <div>
-    
-    <header >
+
+      <header >
         <h1> 🧑‍🍳 𝓐2𝓩 𝓡𝓮𝓬𝓲𝓹𝓮 𝓪𝓹𝓹 🍵 </h1>
-       
+
       </header>
-        <div className='saved-link1'>
-         <a href="/saved-recipes" className="saved-link">View Saved Recipes</a>
-        </div>
-      
+      <div className='saved-link1'>
+        <a href="/saved-recipes" className="saved-link">View Saved Recipes</a>
+      </div>
+
       <div className="search-container">
-       
+
         <input
           type="text"
           placeholder="Search recipes..."
@@ -84,39 +84,39 @@ const Recipe = () => {
           className="search-bar"
         />
       </div>
-       <div className="recipes">
-      {filteredRecipes.map(recipe => (
-        <div key={recipe.id} className="recipe-card" onClick={() => openModal(recipe)}>
-          <img src={recipe.image} alt={recipe.title} />
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-          <div className="card-buttons">
-            <button onClick={(e) => { e.stopPropagation(); handleLike(recipe.id); }}>
-              {likedRecipes.includes(recipe.id) ? 'Unlike' : 'Like'} ({recipe.likes})
-            </button>
-            <button onClick={(e) => { e.stopPropagation(); handleSave(recipe.id); }}>{recipe.saved ? 'Unsave' : 'Save'}</button>
+      <div className="recipes">
+        {filteredRecipes.map(recipe => (
+          <div key={recipe.id} className="recipe-card" onClick={() => openModal(recipe)}>
+            <img src={recipe.image} alt={recipe.title} />
+            <h3>{recipe.title}</h3>
+            <p>{recipe.description}</p>
+            <div className="card-buttons">
+              <button onClick={(e) => { e.stopPropagation(); handleLike(recipe.id); }}>
+                {likedRecipes.includes(recipe.id) ? 'Unlike' : 'Like'} ({recipe.likes})
+              </button>
+              <button onClick={(e) => { e.stopPropagation(); handleSave(recipe.id); }}>{recipe.saved ? 'Unsave' : 'Save'}</button>
+            </div>
           </div>
-        </div>
-      ))}
-      {modalOpen && selectedRecipe && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-modal" onClick={closeModal}>×</button>
-            <img src={selectedRecipe.image} alt={selectedRecipe.title} />
-            <h3>{selectedRecipe.title}</h3>
-            <p>{selectedRecipe.description}</p>
-            <h4>Ingredients:</h4>
-            <ul>
-              {selectedRecipe.ingredients.map((ing, idx) => <li key={idx}>{ing}</li>)}
-            </ul>
-            <a href={selectedRecipe.videoLink} target="_blank" rel="noopener noreferrer">Watch Video</a>
-            <br />
-            <button onClick={() => handleLike(selectedRecipe.id)}>Like ({selectedRecipe.likes})</button>
-            <button onClick={() => handleSave(selectedRecipe.id)}>{selectedRecipe.saved ? 'Unsave' : 'Save'}</button>
+        ))}
+        {modalOpen && selectedRecipe && (
+          <div className="modal-overlay" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="close-modal" onClick={closeModal}>×</button>
+              <img src={selectedRecipe.image} alt={selectedRecipe.title} />
+              <h3>{selectedRecipe.title}</h3>
+              <p>{selectedRecipe.description}</p>
+              <h4>Ingredients:</h4>
+              <ul>
+                {selectedRecipe.ingredients.map((ing, idx) => <li key={idx}>{ing}</li>)}
+              </ul>
+              <a href={selectedRecipe.videoLink} target="_blank" rel="noopener noreferrer">Watch Video</a>
+              <br />
+              <button onClick={() => handleLike(selectedRecipe.id)}>Like ({selectedRecipe.likes})</button>
+              <button onClick={() => handleSave(selectedRecipe.id)}>{selectedRecipe.saved ? 'Unsave' : 'Save'}</button>
+            </div>
           </div>
-        </div>
-      )}
-    </div></div>
+        )}
+      </div></div>
   );
 };
 

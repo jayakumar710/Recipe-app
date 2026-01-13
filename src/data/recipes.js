@@ -605,7 +605,7 @@ const recipes = [
     likes: 0,
     saved: false
   },
- 
+
 ];
 
 export default recipes;

@@ -9,7 +9,7 @@ const AdminRecipe = () => {
   };
 
   const handleEdit = (id) => {
-    // Simple edit: prompt for new title
+
     const newTitle = prompt('Enter new title:');
     if (newTitle) {
       setRecipes(recipes.map(recipe =>
