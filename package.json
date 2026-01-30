@@ -1,9 +1,9 @@
 {
-  "name": "Recipe",
+  "name": "recipe",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/jayakumar237/Recipe-app.git",
+  "homepage": "https://jayakumar710.github.io/Recipe-app/",
 
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.2.0",
