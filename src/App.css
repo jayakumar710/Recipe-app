@@ -497,6 +497,7 @@ a:hover {
 .recipe-card img {
   width: 16em;
   margin-top: 8px;
+  margin-left:6px;
   border-radius: 3cqmin;
   height: 180px;
   object-fit: cover;
