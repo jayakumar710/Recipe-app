@@ -1,53 +1,62 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Admin Login:', { email, password });
-    navigate('/admin-recipes');
+
+    if (!form.email || !form.password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    console.log("Admin Login:", form);
+
+    navigate("/admin-recipes");
   };
 
   return (
-    <div className="admin-bg">
-      <div className="overlay"></div>
-
-      <div className="admin-card">
+    <div className="admin-container">
+      <div className="admin-box">
         <h2>Admin Login</h2>
-        <p className="subtitle">Admin only</p>
 
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Admin email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Admin Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="input-group">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-
+          <input
+            type="password"
+            name="password"
+            placeholder="Admin Password"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
 
           <button type="submit" className="admin-btn">
-            Admin Login
+            Login
           </button>
         </form>
 

@@ -1,73 +1,96 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const navigate = useNavigate();
 
+  // Handle input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert('Passwords do not match');
+    const { username, email, password, confirmPassword } = form;
+
+    // Validation
+    if (!username || !email || !password || !confirmPassword) {
+      alert("Please fill all fields");
       return;
     }
 
-    console.log('Register:', { email, password });
-    navigate('/login');
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    console.log("Register Data:", form);
+
+    // After successful register
+    navigate("/login");
   };
 
   return (
-    <div className="register-bg">
-      <div className="overlay"></div>
-
-      <div className="register-card">
-        <h2>Create Account</h2>
-        <p className="subtitle">Join us today</p>
+    <div className="container">
+      <div className="box">
+        <h2>Register</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={form.username}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="input-group">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="input-group">
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              placeholder="Confirm password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
 
-          <button type="submit" className="register-btn">
-            Register
-          </button>
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit" className="one1">Register</button>
         </form>
 
-        <p className="login-text">
-          Already have an account? <Link to="/login">Login</Link>
+        <p>
+          Already have an account?{" "}
+          <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

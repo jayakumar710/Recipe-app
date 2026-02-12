@@ -1,55 +1,69 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
 
+  // Handle input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login:', { email, password });
+
+    console.log("Login Data:", form);
+
+    // Simple validation example
+    if (!form.email || !form.password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    // Navigate after login
     navigate('/recipes');
   };
 
   return (
-    <div className="login-bg">
-      <div className="overlay"></div>
-
-      <div className="login-card">
-        <h2>Welcome </h2>
-        <p className="subtitle">Login to continue</p>
+    <div className="container">
+      <div className="box">
+        <h2>Login</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="input-group">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
 
-          <button type="submit" className="login-btn">
-            Login
-          </button>
+          <button  type="submit" className="one1">Login</button>
         </form>
 
-        <p className="register-text">
-          Don’t have an account? <Link to="/register">Register</Link>
+        <p>
+          Don't have an account?{" "}
+          <Link to="/register">Register</Link>
         </p>
       </div>
     </div>

@@ -8,7 +8,7 @@ const Home = () => {
       <div className="overlay"></div>
 
       <div className="home-card">
-        <h1> 😋 Welcome To...🤭  </h1>
+        <h1> 🤭 Welcome To...😋  </h1>
         <p>  𝔸2ℤ ℝ𝕖𝕔𝕚𝕡𝕖 𝔽𝕒𝕚𝕟𝕥𝕖𝕣 𝔸𝕡𝕡  </p>
 
         <div className="home-links">

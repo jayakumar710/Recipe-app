@@ -714,7 +714,9 @@ p {
   text-align: left;
   margin-bottom: 1.2rem;
 }
-
+.input-group1{
+  background-color: transparent;
+}
 .input-group label {
   font-size: 0.85rem;
   color: #000000;
@@ -758,7 +760,7 @@ p {
   margin-top: 1.2rem;
   font-size: 0.85rem;
   color: #e7b4b4;
-}
+} 
 
 .register-text a {
   color: #9595f1;
@@ -800,7 +802,7 @@ p {
 .register-card {
   position: relative;
   z-index: 2;
-  background: transparent;
+  background:transparent;
   width: 380px;
   padding: 2.5rem;
   border-radius: 14px;
@@ -1086,5 +1088,278 @@ p {
 
   .home-card h1 {
     font-size: 1.7rem;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #111;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 350px;
+  padding: 40px;
+  background: #1e1e1e;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #ff5e00;
+}
+
+h2 {
+  color: white;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid #ff5e00;
+  background: transparent;
+  color: rgb(29, 25, 25);
+  outline: none;
+}
+
+.one1 {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  background: #ff5e00;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.one1:hover {
+  background: #ff7b2f;
+}
+
+p {
+  color: #aaa;
+}
+
+a {
+  color: #ff5e00;
+  text-decoration: none;
+}
+/* Container */
+.admin-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  padding: 20px;
+}
+
+/* Card */
+.admin-box {
+  width: 100%;
+  max-width: 400px;
+  background: #1e1e1e;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 94, 0, 0.5);
+  text-align: center;
+  color: white;
+}
+
+/* Title */
+.admin-box h2 {
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.admin-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #ff5e00;
+  background: transparent;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Button */
+.admin-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff5e00;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-btn:hover {
+  background: #ff7a33;
+}
+
+/* Back link */
+.back-link {
+  margin-top: 20px;
+}
+
+.back-link a {
+  color: #ff5e00;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* -------- Responsive -------- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .admin-box {
+    padding: 30px 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .admin-box {
+    padding: 25px 15px;
+  }
+
+  .admin-box h2 {
+    font-size: 20px;
+  }
+
+  .admin-box input {
+    font-size: 13px;
+  }
+
+  .admin-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Background */
+.home-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  position: relative;
+  padding: 20px;
+}
+
+/* Optional overlay */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+}
+
+/* Card */
+.home-card {
+  position: relative;
+  z-index: 1;
+  background: #1e1e1e;
+  padding: 50px 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 30px rgba(255, 94, 0, 0.4);
+}
+
+/* Title */
+.home-card h1 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.home-card p {
+  margin-bottom: 35px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* Button Container */
+.home-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Buttons */
+.home-btn {
+  padding: 12px;
+  border-radius: 25px;
+  text-decoration: none;
+  background: #ff5e00;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.home-btn:hover {
+  background: #ff7a33;
+  transform: translateY(-2px);
+}
+
+/* Admin Button Special Style */
+.home-btn.admin {
+  background: #444;
+}
+
+.home-btn.admin:hover {
+  background: #666;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .home-card {
+    padding: 40px 25px;
+  }
+
+  .home-card h1 {
+    font-size: 24px;
+  }
+
+  .home-card p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .home-card {
+    padding: 30px 20px;
+  }
+
+  .home-card h1 {
+    font-size: 20px;
+  }
+
+  .home-card p {
+    font-size: 14px;
+  }
+
+  .home-btn {
+    font-size: 14px;
+    padding: 10px;
   }
 }
